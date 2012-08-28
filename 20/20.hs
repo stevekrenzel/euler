@@ -1,3 +1,4 @@
 fact n = product [1..n]
+digits n = map read $ map (:[]) $ show n
 
-main = print $ sum $ map read $ map (:[]) $ show $ fact 100
+main = print $ sum $ digits $ fact 100
