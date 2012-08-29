@@ -1,4 +1,6 @@
-d n = sum $ filter (/= n) $ concat factors'
+import Data.List (nub)
+
+d n = sum $ nub $ filter (/= n) $ concat factors'
   where factors' = [[x, n `div` x] | x <- [1..(iSqrt n)], (n `mod` x == 0)]
         iSqrt = floor . sqrt . fromIntegral
 
