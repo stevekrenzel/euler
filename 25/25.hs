@@ -1,3 +1,8 @@
+import Data.List
+import Data.Maybe
+
 fibs = map snd $ iterate (\(a, b) -> (b, a + b)) (0, 1)
 
-main = print $ (1 +) $ length $ takeWhile ((< 1000) . length . show) fibs
+sizes = map (length . show) fibs
+
+main = print $ fst $ fromJust $ find ((== 1000) . snd) $ zip [1..] sizes
