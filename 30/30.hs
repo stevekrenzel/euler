@@ -1,9 +1,6 @@
 import Data.List
 import Data.Maybe
-
-digits n = reverse $ digits' n
-  where digits' 0 = []
-        digits' n = (n `mod` 10) : (digits' (n `div` 10))
+import Util.Numbers (digits)
 
 powers m n = map (^m) $ digits n
 

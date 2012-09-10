@@ -1,10 +1,8 @@
-import Data.List (nub)
+import Util.Numbers (properDivisors)
 
 upper = 28123
 
-d n = sum $ nub $ filter (/= n) $ concat factors'
-  where factors' = [[x, n `div` x] | x <- [1..(iSqrt n)], (n `mod` x == 0)]
-        iSqrt = floor . sqrt . fromIntegral
+d = sum . properDivisors
 
 abundants = filter (\n -> (d n) > n) [0..upper]
 

@@ -1,3 +1,3 @@
-import Data.List
+import Data.List (permutations, sort)
 
-main = print $ concatMap show $ (sort $ permutations [0..9]) !! 1000000
+main = print $ (sort $ permutations ['0'..'9']) !! 999999

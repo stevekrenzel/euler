@@ -1,4 +1,5 @@
-fact n = product [1..n]
-digits n = map read $ map (:[]) $ show n
+import Util.Numbers (digits)
 
-main = print $ sum $ digits $ fact 100
+factorial n = product [1..n]
+
+main = print $ sum $ digits $ factorial 100

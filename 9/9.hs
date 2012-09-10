@@ -9,7 +9,6 @@ triplets = filter (isWholeNumber . third) $ map (triple . inc) pairs
         inc (a, b) = (a + 1, b + 1)
         third (a, b, c) = c
 
-main = do
-  print $ floor $ product $ head $ filter ((== 1000) . sum) triplets
+main = print $ floor $ product $ head $ filter ((== 1000) . sum) triplets
   where sum (a, b, c) = a + b + c
         product (a, b, c) = a * b * c

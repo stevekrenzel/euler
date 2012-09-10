@@ -1,5 +1,6 @@
 import Data.List
 import Data.Ord
+import Util.Numbers (isPrime)
 
 first  (a,_,_) = a
 second (_,a,_) = a
@@ -11,8 +12,6 @@ fn a b n = (n ^ 2) + (a * n) + b
 
 results = [(a, b, primeLength $ map (fn a b) [0..]) | a <- bounds, b <- bounds]
   where primeLength = length . (takeWhile isPrime)
-        isPrime x = (x > 1) && (all ((>0) . (x `mod`)) [2..(iSqrt x)])
-        iSqrt = floor . sqrt . fromIntegral
 
 coeffs = maximumBy (comparing third) results
 

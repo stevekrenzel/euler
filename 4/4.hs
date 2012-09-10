@@ -1,5 +1,6 @@
-palindromes xs = [(a * b) | a <- xs, b <- xs, isPalindrome (a * b)]
-  where isPalindrome x = (show x) == (reverse $ show x)
+import Util.Numbers (digits)
+import Util.Lists (isPalindrome)
 
-main = do
-  print $ maximum $ palindromes [100..999]
+palindromes xs = [(a * b) | a <- xs, b <- xs, (isPalindrome . digits) (a * b)]
+
+main = print $ maximum $ palindromes [100..999]

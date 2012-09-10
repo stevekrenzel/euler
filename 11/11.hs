@@ -1,4 +1,5 @@
-import Data.List
+import Data.List (transpose)
+import Util.Lists (windows)
 
 size = 4
 
@@ -37,10 +38,5 @@ diags xs = (diags' 1 xs) ++ (diags' 1 (map reverse xs))
 
 directions xs =  (rows xs) ++ (cols xs) ++ (diags xs)
 
-windows size xs = filter ((>= size) . length) $ windows' size xs
-  where windows' size xs
-          | size > length xs = []
-          | otherwise        = (take size xs) : (windows size (tail xs))
-
-main = do
+main =
   print $ maximum $ map product $ concatMap (windows size) $ directions grid

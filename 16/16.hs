@@ -1,2 +1,3 @@
-main = do
-  print $ sum $ (map read) $ map (:[]) $ show $ 2 ^ 1000
+import Util.Numbers (digits)
+
+main = print $ sum $ digits $ 2 ^ 1000

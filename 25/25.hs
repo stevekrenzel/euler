@@ -1,8 +1,7 @@
-import Data.List
-import Data.Maybe
+import Data.List (find)
+import Data.Maybe (fromJust)
+import Util.Numbers (fibonaccis)
 
-fibs = map snd $ iterate (\(a, b) -> (b, a + b)) (0, 1)
-
-sizes = map (length . show) fibs
+sizes = map (length . show) fibonaccis
 
 main = print $ fst $ fromJust $ find ((== 1000) . snd) $ zip [1..] sizes

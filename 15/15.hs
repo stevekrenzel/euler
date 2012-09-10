@@ -1,6 +1,5 @@
-import Data.Function
+import Data.Function (on)
 
 choose n k =  (div `on` product) [(n - k + 1)..n] [1..k]
 
-main = do
-  print $ choose 40 20
+main = print $ choose 40 20

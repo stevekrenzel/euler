@@ -1,6 +1,6 @@
-import Data.List
-import Data.Maybe
-import Data.Ord
+import Data.List (find, maximumBy)
+import Data.Maybe (fromJust)
+import Data.Ord (comparing)
 
 partitions n = partitions' n 0
   where partitions' 0 o = [(0, o)]
