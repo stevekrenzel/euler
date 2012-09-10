@@ -1,3 +1,5 @@
-squares = map (**2) [1..]
+import Util.Numbers (primes, squares)
 
-main = print $ floor $ ((sum [1..100]) ** 2) - (sum $ take 100 squares)
+diff = ((sum [1..100]) ^ 2) - (sum $ take 100 squares)
+
+main = print $ floor $ fromIntegral $ diff

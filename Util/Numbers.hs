@@ -1,6 +1,7 @@
 module Util.Numbers where
 
   import Data.List (nub)
+  import Util.Lists (sortedElem)
 
   digits n = reverse $ digits' n
     where digits' 0 = []
@@ -27,3 +28,12 @@ module Util.Numbers where
 
   fibonaccis = map snd $ iterate (\(a, b) -> (b, a + b)) (0, 1)
 
+  triangulars = map (\n -> (n * (n + 1)) `div` 2) [1..]
+
+  isTriangular n = n `sortedElem` triangulars
+
+  pentagonals = map (\n -> (n * ((3 * n) - 1)) `div` 2) [1..]
+
+  isPentagonal n = n `sortedElem` pentagonals
+
+  squares = map (^ 2) [1..]
