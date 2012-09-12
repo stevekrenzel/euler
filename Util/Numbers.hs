@@ -12,11 +12,12 @@ module Util.Numbers where
           value' (x:xs) n = value' xs (n * 10 + x)
 
   isPrime 1 = False
-  isPrime x = all ((>0) . (x `mod`)) [2..(iSqrt x)]
+  isPrime 2 = True
+  isPrime x = all ((>0) . (x `mod`)) $ 2:[3,5..(iSqrt x)]
 
   iSqrt = floor . sqrt . fromIntegral
 
-  primes = filter isPrime [2..]
+  primes = 2 : filter isPrime [3,5..]
 
   factors n = concat factors'
     where factors' = [[x, n `div` x] | x <- [1..(iSqrt n)], isFactor x]

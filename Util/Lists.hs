@@ -7,3 +7,9 @@ module Util.Lists where
   windows size xs = takeWhile ((== size) . length) $ windows' size xs
     where windows' _    [] = []
           windows' size xs = (take size xs) : (windows' size (tail xs))
+
+  --combinations [] = []
+  --combinations (x:[]) = map (:[]) x
+  --combinations (x:xs) = concatMap recurse x
+  --  where combos = combinations xs
+  --        recurse y = map (y:) combos
